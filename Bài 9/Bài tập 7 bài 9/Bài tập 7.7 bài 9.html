@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+</head>
+<body>
+<p id="phi"></p>
+<script>
+    let cout = +prompt('Số phút đã gọi');
+    if (cout > 200) {
+        bill = (cout - 200) * 200 + 150 * 400 + 50 * 600;
+    } else {
+        if (cout > 50) {
+            bill = (cout - 50) * 400 + 50 * 600;
+        } else {
+            bill = cout * 600
+        }
+    }
+   document.getElementById("phi").innerHTML='Cước điện thoại là: ' + (bill + 25000);
+</script>
+</body>
+</html>

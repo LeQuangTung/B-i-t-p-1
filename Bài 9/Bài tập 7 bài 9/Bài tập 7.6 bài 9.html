@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính hoa hồng</title>
+</head>
+<body>
+<p id="Commission"></p>
+<script>
+  let sales = +prompt('Doanh thu bán hàng');
+  if (sales >= 500000000){
+    Result1 = sales * 7 / 100;
+    document.getElementById("Commission").innerText ="Commission is " + Result1 + " VNĐ";
+  } else {
+    if (sales >= 200000000) {
+      Result2 = sales * 5 / 100;
+      document.getElementById("Commission").innerText ="Commission is " + Result2 + " VNĐ";
+    } else {
+      Result3 = sales * 3 /100;
+      document.getElementById("Commission").innerText ="Commission is " + Result3 + " VNĐ";
+    }
+  }
+</script>
+</body>
+</html>

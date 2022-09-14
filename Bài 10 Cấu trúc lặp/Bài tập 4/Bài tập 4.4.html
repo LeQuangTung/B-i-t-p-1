@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let data=''
+          for (let i=1;i<=30;i++){
+              data += '*'
+          }
+          data =data + "<br>"
+          for (let i=1;i<=5;i++){
+              data += '*'
+              for (let j=1;j<=28;j++){
+                  data += "&ensp;"
+              }
+              data += '*' + '<br>'
+          }
+          for (let i=1;i<=30;i++){
+          data += '*'
+          }
+          document.write(data+"<br>")
+</script>
+</body>
+</html>

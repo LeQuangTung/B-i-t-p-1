@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi kép</title>
+</head>
+<body>
+<script>
+    let tienvay = +prompt("So tien da vay(tr) ");
+    let thangvay = +prompt("So thang vay ");
+    let laisuat = +prompt("So lai suat thang (%)");
+    for (let i=1;i<=thangvay;i++){
+        tienvay= tienvay*(1+laisuat/100)
+    }document.write(tienvay)
+</script>
+</body>
+</html>
