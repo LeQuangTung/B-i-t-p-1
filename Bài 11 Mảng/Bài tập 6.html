@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<button onclick="start1()">Start1</button>
+<h3>Bài 2</h3>
+<button onclick="start2()">Start2</button>
+<h3>Bài 3</h3>
+<button onclick="start3()">Start3</button>
+<h3>Bài 4</h3>
+<button onclick="start4()">Start4</button>
+<h3>Bài 5</h3>
+<button onclick="start5()">Start5</button>
+<h3>Bài 6</h3>
+<button onclick="start6()">Start6</button>
+</body>
+<script>
+  function start1() {
+    let a = [[1,2,1,24],[8,11,9,4],[7,0,7,27],[7,4,28,14],[3,10,26,7]];
+    for ( let i in a) {
+      console.log("row " + i);
+      for (let j in a[i]) {
+        console.log(" " + a[i][j]);
+      }
+    }
+  }
+
+  function start2() {
+    let arrs = ["c", "s", "c", "2", "6", "1"]
+    arrs.reverse();
+    console.log(arrs.join(""))
+  }
+
+  function start3() {
+      let arrs = ['l','q',1,4,5,0,'t',2,7]
+      let count = 0 ;
+      for (let i = 0;i < arrs.length;i++) {
+          if(typeof arrs[i] == "number") {
+              count++
+          }
+          console.log(count)
+      }
+  }
+
+  function start4() {
+      let arrs = "em nà siu nhân"
+      let words = 0;
+      let arr = arrs.split(" ");
+      for (let i = 0; i <arr.length; i++) {
+          if (arr[i].trim() !== "")
+              words++;
+      }
+      console.log(words)
+  }
+
+
+  function start5() {
+      let chuoi1 = prompt("Nhập chuỗi 1 ")
+      let chuoi2 = prompt("Nhập chuỗi 2 ")
+      let result = chuoi1.localeCompare(chuoi2);
+      if (result === 0) {
+          console.log("Chuỗi " + chuoi1 + "giống chuỗi " + chuoi2 );
+      }
+  }
+
+  function start6() {
+      let arrs = "Siêu-nhân-đỏ";
+      let a = /-/g;
+      let arr1 = arrs.replace(a, "_");
+      console.log(arr1)
+
+  }
+</script>
+</html>

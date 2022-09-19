@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<button onclick="Connect()">Connect</button>
+<h3>Bài 2</h3>
+<button onclick="Connect1()">Connect1</button>
+<h3>Bài 3</h3>
+<button onclick="Connect3()">Connect3</button>
+</body>
+<script>
+  function Connect() {
+    let myColor = ["Red", "Green", "White", "Black"];
+    console.log(myColor.join());
+  }
+
+  function Connect1() {
+    let num = window.prompt();
+    let str = num.toString();
+    let result = [str[0]];
+    for (let x = 1; x < str.length; x++) {
+      if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
+        result.push('-', str[x]);
+      } else {
+        result.push(str[x]);
+      }
+    }
+    console.log(result.join(''));
+  }
+  
+  function Connect3() {
+    let arr =  prompt();
+    let UPPER = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+    let LOWER = "abcdefghiklmnopqrstuvwxyz";
+    let result = [];
+    for (let x = 0; x < arr.length; x++) {
+      if (UPPER.indexOf(arr[x]) !== -1) {
+        result.push(arr[x].toLowerCase());
+      } else if (LOWER.indexOf(arr[x]) !== -1) {
+        result.push(arr[x].toUpperCase());
+      } else {
+        result.push(arr[x]);
+      }
+    }
+    console.log(result.join(''));
+  }
+</script>
+</html>

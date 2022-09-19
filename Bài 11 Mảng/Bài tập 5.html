@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<button onclick="start1()">Start1</button>
+<h3>Bài 2</h3>
+<button onclick="start2()">Start2</button>
+<h3>Bài 3</h3>
+<button onclick="start3()">Start3</button>
+<h3>Bài 4</h3>
+<button onclick="start4()">Start4</button>
+<h3>Bài 5</h3>
+<button onclick="start5()">Start5</button>
+<h3>Bài 6</h3>
+<button onclick="start6()">Start6</button>
+<h3>Bài 7</h3>
+<button onclick="start7()">Start7</button>
+<h3>Bài 8</h3>
+<button onclick="start8()">Start8</button>
+<h3>Bài 9</h3>
+<button onclick="start9()">Start9</button>
+</body>
+<script>
+  function start1() {
+      let arrs = [1, 23, 2, 34, 3, 45, 4, 56, 5, 67];
+      let count = 0
+      for (let i = 0; i < 10; i++) {
+          if (arrs[i] >= 10) {
+              count +=1;
+          }
+          alert(count);
+      }
+  }
+
+  function start2(){
+      let numbers = [-5,-4,-3,-2,-1,1,2,3,4,5];
+      let max = numbers[0];
+      let index = 0;
+      for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] > max) {
+              max =numbers[i];
+              index = i;
+          }
+      }
+      alert("max: " + max + " at position " + index);
+  }
+
+  function start3(){
+      let numbers = [1,2,3,4,5,6,7,8,9,10];
+      let max = numbers[0];
+      let index = 0;
+      let sum = 0;
+      for (let i = 0; i < numbers.length; i++) {
+          sum +=numbers[i];
+          if (numbers[i] > max) {
+              max =numbers[i];
+              index = i;
+          }
+           average = sum/10;
+      }
+      alert("max: " + max + " at position " + index);
+      alert("average: " + average)
+  }
+
+  function start4() {
+      let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      numbers.reverse();
+      alert(numbers);
+  }
+
+  function start5() {
+      let arrs = [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4];
+      let count = 0
+      for (let i = 0; i < 10; i++) {
+          if (arrs[i] < 0) {
+              count +=1;
+          }
+      }
+      alert(count);
+  }
+
+  function start6() {
+      let arrs = [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4];
+      let V = parseInt(prompt("Enter the number: "));
+      let c = arrs.indexOf(V)
+      if (c !== -1) {
+          alert("V is in the array");
+      } else {
+          alert('V is not in the array');
+      }
+  }
+
+  function start7() {
+      let arrs = [-5, -4, -3, -2, 1, 1, 2, 3, 4, 5];
+      let V = parseInt(prompt("Enter the number: "));
+      for (let i = 0; i < arrs.length;) {
+          if (V === arrs[i]) {
+              arrs.splice(i,1);
+              arrs.push(0);
+          } else {
+              i ++;
+          }
+      }
+      alert(arrs);
+  }
+
+  function start8() {
+      let arrs = [1, 5, 20, 14, -3, 26, 15, 9, -9, 30];
+      arrs.sort(function (a, b) {
+          return b - a
+      });
+      alert(arrs);
+  }
+
+  function start9() {
+      let a =[21,22,23,24,25,26,27,28,29,30];
+      let b =[31,32,33,34,35,36,37,38,39,40];
+      let c = new Array(20);
+      let c1 = c.concat(a).concat(b);
+      console.log(c1)
+  }
+</script>
+</html>
