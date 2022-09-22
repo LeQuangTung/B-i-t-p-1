@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả hình chữ nhật</title>
+</head>
+<canvas id="myCanvas" width="500" height="300"></canvas>
+<body>
+<script>
+let Rectangle = function (width,height) {
+    this.height = height;
+    this.width = width;
+    this.getHeight = function () {
+        return this.height;
+    }
+    this.getWidth = function () {
+        return this.width;
+    }
+    // this.setHeight = function (height) {
+    //     this.height = height;
+    // }
+    // this.setWidth = function (width) {
+    //     this.width = width;
+    // }
+    this.getPerimeter = function () {
+        return 2 * (this.height + this.width);
+    }
+    this.getArea = function () {
+        return this.height * this.width;
+    }
+}
+let myRectangle = new Rectangle(300,150);
+let width = myRectangle.getWidth();
+let height = myRectangle.getHeight();
+let Area = myRectangle.getArea();
+let Perimeter = myRectangle.getPerimeter();
+document.write("Area is: " + Area + "<br>" );
+document.write("Perimeter is: " + Perimeter );
+
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext('2d');
+ctx.fillStyle='#8f25a7';
+ctx.fillRect(10,10,width,height)
+</script>
+</body>
+</html>

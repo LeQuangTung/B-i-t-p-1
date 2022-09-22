@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h3>Bài 2</h3>
+<p><label><input type="text" oninput="Tong(this.value)" onchange="Tong(this.value)" placeholder="Enter number"></label></p>
+<p id="output"></p>
+<body>
+<script>
+function Tong(num) {
+a = Number(num);
+}
+document.getElementById("output").innerHTML = a + 1
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><input id="input" oninput="isNumber()" ></p>
+
+<script>
+  let num = document.getElementById("input").value
+  function isNumber(num) {
+    if (typeof num == "number") {
+      console.log("True");
+    } else {
+      console.log("False");
+    }
+  }
+
+
+
+</script>
+</body>
+</html>

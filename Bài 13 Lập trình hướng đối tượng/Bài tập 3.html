@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả điện thoại</title>
+</head>
+<body>
+<h2>Nokia</h2>
+<p>Trạng thái: <samp id="nokia"></samp></p>
+<textarea cols="80" rows="5" id="hienthi"></textarea><br>
+<input type="button" onclick="battat()" value="Bật & Tắt">
+<input type="button" onclick="soan()" value="Soạn tin nhắn">
+<input type="button" onclick="nhap()" value="Tin nháp">
+<input type="button" onclick="hopthuden()" value="Hộp thư đến">
+<input type="button" onclick="hopthudi()" value="Hộp thư đi">
+<input type="button" onclick="sacdienthoai()" value="Sạc điện thoại">
+<input type="button" onclick="gui()" value="Gửi tin nhắn"><br>
+
+<p>Trạng thái: <samp id="iphone"></samp></p>
+<textarea cols="80" rows="5" id="hienthiip"></textarea><br>
+<input type="button" onclick="battatip()" value="Bật & Tắt">
+<input type="button" onclick="soanip()" value="Soạn tin nhắn">
+<input type="button" onclick="nhapip()" value="Tin nháp">
+<input type="button" onclick="hopthudenip()" value="Hộp thư đến">
+<input type="button" onclick="hopthudiip()" value="Hộp thư đi">
+<input type="button" onclick="sacdienthoaiip()" value="Sạc điện thoại">
+<input type="button" onclick="guiip()" value="Gửi tin nhắn"><br>
+
+<script>
+  function Mobile(dienthoai,pin) {
+    this.pin = pin;
+    this.nhap = [];
+    this.thuden = [];
+    this.thudi = [];
+    this.checkphone = function () {
+      if (this.kiemtrabattat) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+    this.battat = function () {
+      if (this.checkphone()) {
+        this.kiemtrabattat = false;
+      } else {
+        this.kiemtrabattat = true;
+      }
+    };
+    this.dungpin = function () {
+      if (this.pin > 0) {
+        this.pin --;
+      }
+    };
+    this.sacpin = function () {
+      if (this.pin < 100) {
+        this.pin ++;
+      }
+    };
+    this.getpin = function () {
+      return this.pin;
+    }
+    this.luuNhap = function (value) {
+      this.nhap.push(value);
+    }
+    this.getnhap = function () {
+      return this.nhap;
+    }
+    this.hopThuDen = function (value) {
+      this.thuden.push(value);
+    }
+    this.getThuDen = function () {
+      return this.thuden;
+    }
+    this.hopThuDi = function (value) {
+      this.thudi.push(value);
+    }
+    this.getThuDi = function () {
+      return this.thudi;
+    }
+    this.kiemTraDienThoai = function () {
+      if (this.pin === 0) {
+        return false;
+      }
+      return true;
+    }
+  }
+
+  let iphone = new Mobile("iphone", 10);
+  let nokia = new Mobile("nokia", 10);
+
+  function value(str) {
+    return document.getElementById(str).value;
+  }
+  function battat() {
+    nokia.battat();
+    nokia.dungpin();
+    shownokia();
+  }
+  function battatip() {
+    iphone.battat();
+    iphone.dungpin();
+    showiphone();
+  }
+  function shownokia() {
+    let a = nokia.checkphone() ? "bật" : "tắt";
+    document.getElementById("nokia").innerHTML = a + "<br>" + nokia.getpin() + "%";
+  }
+  function showiphone() {
+    let a = iphone.checkphone() ? "bật" : "tắt";
+    document.getElementById("iphone").innerHTML = a + "<br>" + iphone.getpin() + "%";
+  }
+  function sacdienthoai() {
+    nokia.sacpin();
+    shownokia();
+  }
+  function sacdienthoaiip() {
+    iphone.sacpin();
+    showiphone();
+  }
+  function soan(){
+    if (nokia.kiemTraDienThoai() && nokia.checkphone()) {
+      nokia.dungpin();
+      shownokia();
+      nokia.luuNhap(value("hienthi"));
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function nhap(){
+    if (nokia.kiemTraDienThoai() && nokia.checkphone()) {
+      nokia.dungpin();
+      shownokia();
+      document.getElementById("hienthi").value = " ";
+      for (let i = 0;i < nokia.nhap.length; i++) {
+        document.getElementById("hienthi").value += i + " " + nokia.getnhap()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+function soanip(){
+    if (iphone.kiemTraDienThoai() && iphone.checkphone()) {
+      iphone.dungpin();
+      shownokia();
+      iphone.luuNhap(value("hienthiip"));
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function nhapip(){
+    if (iphone.kiemTraDienThoai() && iphone.checkphone()) {
+      iphone.dungpin();
+      shownokia();
+      document.getElementById("hienthiip").value = " ";
+      for (let i = 0;i < iphone.nhap.length; i++) {
+        document.getElementById("hienthiip").value += i + " " + iphone.getnhap()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function gui() {
+    if (nokia.kiemTraDienThoai() && nokia.checkphone()) {
+      nokia.dungpin();
+      shownokia();
+      document.getElementById("hienthiip").value = document.getElementById("hienthi").value;
+      iphone.hopThuDen(value("hienthiip"))
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function guiip() {
+    if (iphone.kiemTraDienThoai() && iphone.checkphone()) {
+      iphone.dungpin();
+      showiphone();
+      document.getElementById("hienthi").value = document.getElementById("hienthiip").value;
+      nokia.hopThuDen(value("hienthi"))
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function hopthuden() {
+    if (nokia.kiemTraDienThoai() && nokia.checkphone()) {
+      nokia.dungpin();
+      shownokia();
+      document.getElementById("hienthi").value = " ";
+      for (let i = 0;i < nokia.thuden.length; i++) {
+        document.getElementById("hienthi").value += i + " " + nokia.getThuDen()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function hopthudenip() {
+    if (iphone.kiemTraDienThoai() && iphone.checkphone()) {
+      iphone.dungpin();
+      shownokia();
+      document.getElementById("hienthiip").value = " ";
+      for (let i = 0;i < iphone.thuden.length; i++) {
+        document.getElementById("hienthiip").value += i + " " + iphone.getThuDen()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+function hopthudi() {
+    if (nokia.kiemTraDienThoai() && nokia.checkphone()) {
+      nokia.dungpin();
+      shownokia();
+      document.getElementById("hienthi").value = " ";
+      nokia.hopThuDi(value("hienthi"));
+      for (let i = 0;i < nokia.thudi.length; i++) {
+        document.getElementById("hienthi").value += i + " " + nokia.getThuDi()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+  function hopthudiip() {
+    if (iphone.kiemTraDienThoai() && iphone.checkphone()) {
+      iphone.dungpin();
+      shownokia();
+      document.getElementById("hienthiip").value = " ";
+      iphone.hopThuDi(value("hienthiip"));
+      for (let i = 0;i < iphone.thudi.length; i++) {
+        document.getElementById("hienthiip").value += i + " " + iphone.getThuDi()[i];
+      }
+    } else {
+      alert("Chưa bật máy hoặc hết pin");
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Radius<input type="text" id="input" oninput="calculate()"></p>
+<p id="re1"></p>
+<p id="re2"></p>
+</body>
+<script>
+  function diameter(number) {
+    let result1 = 2 * number * 3.14;
+    return result1;
+  }
+  function area(number) {
+    let result2 = number * number * 3.14;
+    return result2;
+  }
+  function calculate() {
+    let input = document.getElementById("input").value;
+    let result1 = diameter(input);
+    let result2 = area(input);
+    document.getElementById("re1").innerText ="Diameter of circle is: " + result1;
+    document.getElementById("re2").innerText ="Area of circle is: " + result2;
+  }
+</script>
+</html>
